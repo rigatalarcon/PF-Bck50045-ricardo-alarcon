@@ -1,0 +1,19 @@
+<div class="container">
+  <h1> Bienvenido a tu perfil</h1>
+
+  <form>
+    <div class="form-group">
+      <p>Nombre: {{user.first_name}} {{user.last_name}} </p>
+      <p>Edad: {{user.age}} </p>
+      <p>Email: {{user.email}} </p>
+      <div class="form-group">
+        <button href="/api/sessions/logout">Logout</button>
+      </div>
+      {{#if this.isAdmin}}
+      <a href="/realtimeproducts">Modificar Productos</a>
+      {{else}}
+      <a href="/chat">Chat en vivo</a>
+      <a href="/products">Tienda</a>
+      {{/if}}
+  </form>
+</div>
