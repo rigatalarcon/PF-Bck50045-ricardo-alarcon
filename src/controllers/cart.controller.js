@@ -1,10 +1,10 @@
-//const TicketModel = require("../models/ticket.model.js");
+const TicketModel = require("../models/ticket.model.js");
 const UserModel = require("../models/user.model.js");
 const CartRepository = require("../repositories/cart.repository.js");
 const cartRepository = new CartRepository();
 const ProductRepository = require("../repositories/products.repository.js");
 const productRepository = new ProductRepository();
-//const { generateUniqueCode, calcularTotal } = require("../utils/cartutils.js");
+const { generateUniqueCode, calcularTotal } = require("../utils/cartutils.js");
 
 
 

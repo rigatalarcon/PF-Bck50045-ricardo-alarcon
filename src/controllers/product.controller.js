@@ -6,9 +6,8 @@ class ProductController {
     async addProduct(req, res) {
         const nuevoProducto = req.body;
         try {
-            const resultado = await productRepository.agregarProducto(nuevoProducto);
-            res.json(resultado);
-
+            const resultado = await productRepository.agregarProduct(nuevoProducto);
+            res.status(200).json(resultado);
         } catch (error) {
             res.status(500).send("Error");
         }
@@ -18,9 +17,9 @@ class ProductController {
         try {
             let { limit = 10, page = 1, sort, query } = req.query;
 
-            const productos = await productRepository.obtenerProductos(limit, page, sort, query);
+            const productos = await productRepository.obtenerProduct(limit, page, sort, query);
 
-            res.json(productos);
+            res.status(200).json(productos);
         } catch (error) {
             res.status(500).send("Error");
         }
@@ -46,7 +45,7 @@ class ProductController {
             const id = req.params.pid;
             const productoActualizado = req.body;
 
-            const resultado = await productRepository.actualizarProducto(id, productoActualizado);
+            const resultado = await productRepository.actualizarProduct(id, productoActualizado);
             res.json(resultado);
         } catch (error) {
             res.status(500).send("Error al actualizar el producto");
@@ -56,7 +55,7 @@ class ProductController {
     async deleteProduct(req, res) {
         const id = req.params.pid;
         try {
-            let respuesta = await productRepository.eliminarProducto(id);
+            let respuesta = await productRepository.eliminarProduct(id);
 
             res.json(respuesta);
         } catch (error) {

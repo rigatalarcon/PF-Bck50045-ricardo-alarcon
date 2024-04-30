@@ -28,8 +28,8 @@ class ViewsController {
             });
 
 
-            const cartId = req.user.cart.toString();
-            //console.log(cartId);
+            const cartId = req.user.cart;
+            console.log(cartId);
 
             res.render("products", {
                 productos: nuevoArray,

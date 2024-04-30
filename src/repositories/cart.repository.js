@@ -61,6 +61,7 @@ class CartRepository {
 
     async actualizarProductosEnCarrito(cartId, updatedProducts) {
         try {
+            console.log(updatedProducts);
             const cart = await CartModel.findById(cartId);
 
             if (!cart) {
@@ -91,10 +92,7 @@ class CartRepository {
         
             if (productIndex !== -1) {
                 cart.products[productIndex].quantity = newQuantity;
-
-
                 cart.markModified('products');
-
                 await cart.save();
                 return cart;
             } else {

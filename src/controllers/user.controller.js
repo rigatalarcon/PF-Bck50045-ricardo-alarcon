@@ -23,7 +23,8 @@ class UserController {
                 email,
                 cart: nuevoCarrito._id, 
                 password: createHash(password),
-                age
+                age: age,
+                
             });
 
             await nuevoUsuario.save();

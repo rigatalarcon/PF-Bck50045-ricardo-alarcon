@@ -1,24 +1,21 @@
-/* Reset de estilos */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Roboto', sans-serif;
+
 }
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
+
+/*HEADER*/
+
+.tamLogo {
+    width: 150px;
 }
+
 .fuentesNav {
     font-size: 1.5rem;
     padding: 10px;
 }
+
 .encabezado {
     /* background-color: bisque; */
     border-top: solid 20px #c1101a;
@@ -40,6 +37,7 @@ a:hover {
     background-color: #c1101a;
     color: #fafafa;
 }
+
 /* PRODUCTOS */
 
 .tituloProductos {
@@ -80,89 +78,50 @@ a:hover {
     object-position: center top;
 }
 
-/*formularios*/
-.container {
-    width: 300px;
-    margin: 100px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.container h2 {
+/* Estilos del formulario de inicio de sesión */
+h1 {
     text-align: center;
-    margin-bottom: 20px;
 }
 
-.form-group {
-    margin-bottom: 20px;
+.formulario {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
 }
 
-.form-group label {
+label {
     display: block;
-    margin-bottom: 5px;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-.form-group button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-.form-group button:hover {
-    background-color: #0056b3;
-}
-
-.profile {
-    width: 300px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.welcome-msg {
-    margin-top: 0;
-}
-
-.info {
     margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
 }
 
-#logout-btn {
-    padding: 8px 16px;
-    background-color: #007bff;
+.inputMessi {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.btnMios {
+    width: 100%;
+    padding: 10px;
+    background-color: #c1101a;
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-#logout-btn:hover {
-    background-color: #0056b3;
+.btnMios:hover {
+    background-color: #ff1f33;
 }
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+
+i {
+    font-size: 35px;
 }
