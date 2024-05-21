@@ -1,19 +1,21 @@
 const ProductModel = require("../models/product.model.js");
 
 class ProductRepository {
-    async agregarProduct({ title, description, price, img, code, stock, category, thumbnails }) {
+    async agregarProducto({ title, description, price, img, code, stock, category, thumbnails, owner }) {
         try {
             if (!title || !description || !price || !code || !stock || !category) {
                 console.log("Todos los campos son obligatorios");
                 return;
             }
 
-            const existeProduct = await ProductModel.findOne({ code: code });
+            const existeProducto = await ProductModel.findOne({ code: code });
 
-            if (existeProduct) {
-                console.log("El código debe ser único!");
+            if (existeProducto) {
+                console.log("El código debe ser único");
                 return;
             }
+
+            console.log("Owner", owner);
 
             const newProduct = new ProductModel({
                 title,
@@ -24,8 +26,10 @@ class ProductRepository {
                 stock,
                 category,
                 status: true,
-                thumbnails: thumbnails || []
+                thumbnails: thumbnails || [],
+                owner
             });
+
 
             await newProduct.save();
 
@@ -36,7 +40,7 @@ class ProductRepository {
         }
     }
 
-    async obtenerProduct(limit = 10, page = 1, sort, query) {
+    async obtenerProductos(limit = 10, page = 1, sort, query) {
         try {
             const skip = (page - 1) * limit;
 
@@ -53,7 +57,7 @@ class ProductRepository {
                 }
             }
 
-            const product = await ProductModel
+            const productos = await ProductModel
                 .find(queryOptions)
                 .sort(sortOptions)
                 .skip(skip)
@@ -68,7 +72,7 @@ class ProductRepository {
             
 
             return {
-                docs: product,
+                docs: productos,
                 totalPages,
                 prevPage: hasPrevPage ? page - 1 : null,
                 nextPage: hasNextPage ? page + 1 : null,
@@ -85,25 +89,25 @@ class ProductRepository {
 
     async obtenerProductoPorId(id) {
         try {
-            const product = await ProductModel.findById(id);
+            const producto = await ProductModel.findById(id);
 
-            if (!product) {
+            if (!producto) {
                 console.log("Producto no encontrado");
                 return null;
             }
 
             console.log("Producto encontrado");
-            return product;
+            return producto;
         } catch (error) {
             throw new Error("Error");
         }
     }
 
-    async actualizarProduct(id, productoActualizado) {
+    async actualizarProducto(id, productoActualizado) {
         try {
             const actualizado = await ProductModel.findByIdAndUpdate(id, productoActualizado);
             if (!actualizado) {
-                console.log("No se encuentra el producto");
+                console.log("No se encuentra che el producto");
                 return null;
             }
 
@@ -114,12 +118,13 @@ class ProductRepository {
         }
     }
 
-    async eliminarProduct(id) {
+    async eliminarProducto(id) {
+
         try {
             const deleteado = await ProductModel.findByIdAndDelete(id);
 
             if (!deleteado) {
-                console.log("No se encuentra producto");
+                console.log("No se encuentraaaa!");
                 return null;
             }
 

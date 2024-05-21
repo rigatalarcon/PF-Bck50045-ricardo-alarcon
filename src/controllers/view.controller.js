@@ -69,7 +69,7 @@ class ViewsController {
                 const quantity = item.quantity;
                 const totalPrice = product.price * quantity;
 
-                
+
                 totalCompra += totalPrice;
 
                 return {
@@ -95,8 +95,9 @@ class ViewsController {
     }
 
     async renderRealTimeProducts(req, res) {
+        const usuario = req.user;
         try {
-            res.render("realtimeproducts");
+            res.render("realtimeproducts", { role: usuario.role, email: usuario.email });
         } catch (error) {
             console.log("error en la vista real time", error);
             res.status(500).json({ error: "Error interno del servidor" });
@@ -110,6 +111,20 @@ class ViewsController {
     async renderHome(req, res) {
         res.render("home");
     }
+
+    async renderResetPassword(req, res) {
+        res.render("passwordreset");
+    }
+
+    async renderCambioPassword(req, res) {
+        res.render("passwordcambio");
+    }
+
+    async renderConfirmacion(req, res) {
+        res.render("confirmacion-envio");
+    }
 }
+
+
 
 module.exports = ViewsController;

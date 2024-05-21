@@ -10,8 +10,6 @@ const compression = require("express-compression");
 const PUERTO = 8080;
 require("./database.js");
 
-
-
 const productsRouter = require("./routes/products.router.js");
 const cartsRouter = require("./routes/carts.router.js");
 const viewsRouter = require("./routes/views.router.js");
@@ -38,8 +36,8 @@ initializePassport();
 app.use(cookieParser());
 
 //AuthMiddleware
-// const authMiddleware = require("./middleware/authmiddleware.js");
-// app.use(authMiddleware);
+const authMiddleware = require("./middleware/authmiddleware.js");
+app.use(authMiddleware);
 
 //Handlebars
 app.engine("handlebars", exphbs.engine());

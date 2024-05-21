@@ -7,20 +7,21 @@ class CartRepository {
             await nuevoCarrito.save();
             return nuevoCarrito;
         } catch (error) {
-            throw new Error("Error");
+            throw new Error("hola soy un Error");
         }
     }
 
-    async obtenerProductosDeCarrito(idCarrito) {
+    async obtenerProductosDeCarrito(cartId) {
         try {
-            const carrito = await CartModel.findById(idCarrito);
+            const carrito = await CartModel.findById(cartId);
             if (!carrito) {
-                console.log("No existe ese carrito con el id");
+                console.log("No existe ese carrito con Id");
                 return null;
             }
             return carrito;
         } catch (error) {
-            throw new Error("Error");
+            throw new Error("otro error");
+
         }
     }
 
@@ -41,7 +42,7 @@ class CartRepository {
             await carrito.save();
             return carrito;
         } catch (error) {
-            throw new Error("Error");
+            throw new Error("y otro Error mas ");
         }
     }
 
@@ -119,7 +120,7 @@ class CartRepository {
             return cart;
 
         } catch (error) {
-            throw new Error("Error");
+            throw new Error("sere yo el Error");
         }
     }
 }
