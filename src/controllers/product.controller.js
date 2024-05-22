@@ -4,10 +4,10 @@ const productRepository = new ProductRepository();
 class ProductController {
 
     async addProduct(req, res) {
-        const nuevoProducto = req.body;
+        const newProduct = req.body;
 
         try {
-            await productRepository.agregarProducto(nuevoProducto);
+            await productRepository.agregarProducto(newProduct);
         } catch (error) {
             res.status(500).send("Error al agregar producto");
         }
@@ -17,9 +17,9 @@ class ProductController {
         try {
             let { limit = 10, page = 1, sort, query } = req.query;
 
-            const productos = await productRepository.obtenerProductos(limit, page, sort, query);
+            const products = await productRepository.obtenerProductos(limit, page, sort, query);
 
-            res.status(200).json(productos);
+            res.status(200).json(products);
         } catch (error) {
             res.status(500).send("Error");
         }

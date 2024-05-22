@@ -37,14 +37,14 @@ class CartController {
         try {
             //Tercer Integradora: 
             // Buscar el producto para verificar el propietario
-            const producto = await productRepository.obtenerProductoPorId(productId);
+            const products = await productRepository.obtenerProductoPorId(productId);
 
-            if (!producto) {
+            if (!products) {
                 return res.status(404).json({ message: 'Producto no encontrado' });
             }
 
             // Verificar si el usuario es premium y si es propietario del producto
-            if (req.user.role === 'premium' && producto.owner === req.user.email) {
+            if (req.user.role === 'premium' && products.owner === req.user.email) {
                 return res.status(403).json({ message: 'No puedes agregar tu propio producto al carrito.' });
             }
             ////////////////////////////////////////////////////////////////////

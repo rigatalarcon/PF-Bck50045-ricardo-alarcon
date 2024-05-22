@@ -4,7 +4,7 @@ const ProductController = require("../controllers/product.controller.js");
 const productController = new ProductController(); 
 const passport = require("passport");
 
-router.get("/", productController.getProduct);
+router.get("/products", productController.getProduct);
 router.get("/:pid", productController.getProductById);
 router.post("/", passport.authenticate("jwt", { session: false }) ,productController.addProduct);
 router.put("/:pid", productController.updateProduct);
