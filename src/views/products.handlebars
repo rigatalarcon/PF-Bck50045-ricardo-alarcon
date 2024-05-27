@@ -5,16 +5,16 @@
     </a>
 
 </div>
-<div class="container">
+<div class="card-containerproductos">
     <div class="row">
         {{#each productos}}
-        <div class="card col-xl-4 col-md-6 col-sm-12">
+        <div class="card">
             <img src="{{img}}" alt="" class="card-img-top">
             <div class="card-body">
                 <h2 class="card-title">{{title}}</h2>
                 <p class="card-text">{{description}}</p>
                 <p class="card-text">Price: ${{price}}</p>
-                <form action="/api/carts/{{../cartId}}/product/{{id}}" method="POST">
+                <form action="/carts/{{../cartId}}/product/{{id}}" method="POST">
                     <button class="btnMios" type="submit">Agregar al Carrito</button>
                 </form>
             </div>

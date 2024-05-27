@@ -96,28 +96,44 @@ a:hover {
     color: #fafafa;
 }
 
-
 /*Cards*/
-
-.card-img-top {
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+/* Card container */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 16px;
 }
 
+/* Individual card */
+.card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Card image */
 .card-img {
     width: 100%;
     height: 200px;
-    /* Adjust this value as needed */
     object-fit: cover;
-    /* Ensures the image covers the entire area without distortion */
 }
 
+/* Card content */
 .card-content {
     padding: 16px;
+    text-align: center;
 }
 
 .card-content h2 {
@@ -129,6 +145,16 @@ a:hover {
     margin: 0;
     color: #555;
 }
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
 
 /* Estilos del formulario de inicio de sesión */
 h1 {
@@ -219,8 +245,6 @@ i {
 
 /*estilo real time products*/
 
-
-
 /* Títulos */
 h1,
 h2,
@@ -237,14 +261,25 @@ h3 {
     margin-top: 20px;
 }
 
-/* Tarjeta de producto */
+/* Estilos pagina de Productos - Tarjeta de producto */
+
+.card-containerproductos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px; /* Añadir espacio entre tarjetas */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 16px;
+}
 .card {
-    width: 300px;
-    margin-bottom: 20px;
-    border: 1px solid #c1101a;
-    border-radius: 5px;
-    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s;
 }
 
 .card p {

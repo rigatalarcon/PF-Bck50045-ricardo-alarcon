@@ -202,6 +202,16 @@ class UserController {
             res.status(500).send("Error del servidor")
         }
     }
-}
 
+    async deleteUser (req, res) {
+        const id = req.param.uid;
+
+        try {
+            let borrado = await UserModel.deleteUser(id);
+            res.json(borrado);
+        } catch (error) {
+            res.status(500).sen("Error al borrar usuario");
+        }
+    }
+}
 module.exports = UserController;

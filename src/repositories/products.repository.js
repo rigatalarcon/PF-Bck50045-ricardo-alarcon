@@ -34,6 +34,7 @@ class ProductRepository {
             await newProduct.save();
 
             return newProduct;
+            
 
         } catch (error) {
             throw new Error("Error");
@@ -107,7 +108,7 @@ class ProductRepository {
         try {
             const actualizado = await ProductModel.findByIdAndUpdate(id, productoActualizado);
             if (!actualizado) {
-                console.log("No se encuentra che el producto");
+                console.log("No se puede actualizar, no existe el producto");
                 return null;
             }
 
