@@ -1,4 +1,4 @@
-const ProductModel = require("../models/product.model.js");
+const Product = require("../models/product.model.js");
 const CartRepository = require("../repositories/cart.repository.js");
 const cartRepository = new CartRepository();
 
@@ -9,12 +9,12 @@ class ViewsController {
 
             const skip = (page - 1) * limit;
 
-            const productos = await ProductModel
+            const productos = await Product
                 .find()
                 .skip(skip)
                 .limit(limit);
 
-            const totalProducts = await ProductModel.countDocuments();
+            const totalProducts = await Product.countDocuments();
 
             const totalPages = Math.ceil(totalProducts / limit);
 

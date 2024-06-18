@@ -7,6 +7,4 @@ const generarInfoError = (usuario) => {
     `;
 }
 
-module.exports = {
-    generarInfoError
-}
+module.exports = {generarInfoError}

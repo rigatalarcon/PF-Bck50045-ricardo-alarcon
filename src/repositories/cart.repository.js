@@ -3,7 +3,7 @@ const CartModel = require("../models/cart.model.js");
 class CartRepository {
     async crearCarrito() {
         try {
-            const nuevoCarrito = new CartModel({ products: [] });
+            const nuevoCarrito = new CartModel({ Product: [] });
             await nuevoCarrito.save();
             return nuevoCarrito;
         } catch (error) {
@@ -42,13 +42,15 @@ class CartRepository {
             await carrito.save();
             return carrito;
         } catch (error) {
-            throw new Error("y otro Error mas ");
+            throw new Error("Error");
         }
     }
+    
+    
 
     async eliminarProducto(cartId, productId) {
         try {
-            const cart = await CartModel.findById(cartId);
+            const cart = await CartModel.findById(cart);
             if (!cart) {
                 throw new Error('Carrito no encontrado');
             }

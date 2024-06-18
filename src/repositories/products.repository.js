@@ -1,7 +1,6 @@
 const ProductModel = require("../models/product.model.js");
-
 class ProductRepository {
-    async agregarProducto({ title, description, price, img, code, stock, category, thumbnails, owner }) {
+    async agregarProducto({ title, description, price, img, code, stock, category, thumbnails }) {
         try {
             if (!title || !description || !price || !code || !stock || !category) {
                 console.log("Todos los campos son obligatorios");
@@ -11,11 +10,9 @@ class ProductRepository {
             const existeProducto = await ProductModel.findOne({ code: code });
 
             if (existeProducto) {
-                console.log("El código debe ser único");
+                console.log("El código debe ser único, malditooo!!!");
                 return;
             }
-
-            console.log("Owner", owner);
 
             const newProduct = new ProductModel({
                 title,
@@ -26,22 +23,19 @@ class ProductRepository {
                 stock,
                 category,
                 status: true,
-                thumbnails: thumbnails || [],
-                owner
+                thumbnails: thumbnails || []
             });
-
 
             await newProduct.save();
 
             return newProduct;
-            
 
         } catch (error) {
             throw new Error("Error");
         }
     }
 
-    async obtenerProductos(limit = 10, page = 1, sort, query) {
+    async obtenerProductos(limit = 30, page = 1, sort, query) {
         try {
             const skip = (page - 1) * limit;
 
@@ -65,12 +59,12 @@ class ProductRepository {
                 .limit(limit);
 
             const totalProducts = await ProductModel.countDocuments(queryOptions);
-            
+
             const totalPages = Math.ceil(totalProducts / limit);
-            
+
             const hasPrevPage = page > 1;
             const hasNextPage = page < totalPages;
-            
+
 
             return {
                 docs: productos,
@@ -97,7 +91,7 @@ class ProductRepository {
                 return null;
             }
 
-            console.log("Producto encontrado");
+            console.log("Producto encontrado!! Claro que siiiiii");
             return producto;
         } catch (error) {
             throw new Error("Error");
@@ -108,11 +102,11 @@ class ProductRepository {
         try {
             const actualizado = await ProductModel.findByIdAndUpdate(id, productoActualizado);
             if (!actualizado) {
-                console.log("No se puede actualizar, no existe el producto");
+                console.log("No se encuentra che el producto");
                 return null;
             }
 
-            console.log("Producto actualizado con exito!");
+            console.log("Producto actualizado con exito, como todo en mi vidaa!");
             return actualizado;
         } catch (error) {
             throw new Error("Error");
@@ -120,12 +114,11 @@ class ProductRepository {
     }
 
     async eliminarProducto(id) {
-
         try {
             const deleteado = await ProductModel.findByIdAndDelete(id);
 
             if (!deleteado) {
-                console.log("No se encuentraaaa!");
+                console.log("No se encuentraaaa, busca bien!");
                 return null;
             }
 

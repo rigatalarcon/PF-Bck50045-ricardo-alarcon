@@ -1,6 +1,6 @@
 const express = require("express");
 const { generarInfoError } = require("../services/errors/info.js");
-const { EErrors } = require("../services/errors/enums.js");
+const { EErrors } = require("../services/errors/enum.js");
 
 const router = express.Router();
 const UserModel = require("../models/user.model.js"); 

@@ -8,6 +8,8 @@ class ProductController {
 
         try {
             await productRepository.agregarProducto(newProduct);
+            
+            newProduct.getElementById('productForm').reset();
         } catch (error) {
             res.status(500).send("Error al agregar producto");
         }

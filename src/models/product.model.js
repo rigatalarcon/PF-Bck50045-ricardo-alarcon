@@ -1,52 +1,101 @@
-const mongoose = require("mongoose");
-const mongoosePaginate = require("mongoose-paginate-v2");
+// const mongoose = require("mongoose");
+// const mongoosePaginate = require("mongoose-paginate-v2");
+
+// const productSchema = new mongoose.Schema({
+//     title: {
+//         type: String, 
+//         required: true
+//     },
+//     description: {
+//         type: String, 
+//         required: true
+//     },
+//     price: {
+//         type: Number, 
+//         required: true
+//     },
+//     img: {
+//         type: String, 
+//     },
+//     code: {
+//         type: String, 
+//         required: true,
+//         unique: true
+//     },
+//     stock: {
+//         type: Number, 
+//         required: true
+//     },
+//     category: {
+//         type: String, 
+//         required: true
+//     },
+//     status: {
+//         type: Boolean, 
+//         required: true
+//     },
+//     thumbnails: {
+//         type: [String], 
+//     },
+//     owner: {
+//         type: String, 
+//         required: true, 
+//         default: 'admin'
+//         }
+
+// })
+
+// productSchema.plugin(mongoosePaginate);
+
+// const ProductModel = mongoose.model("product", productSchema);
+
+// module.exports = ProductModel;
+
+const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
     title: {
-        type: String, 
+        type: String,
         required: true
     },
     description: {
-        type: String, 
+        type: String,
         required: true
     },
     price: {
-        type: Number, 
+        type: Number,
         required: true
     },
     img: {
-        type: String, 
+        type: String,
     },
     code: {
-        type: String, 
+        type: String,
         required: true,
         unique: true
     },
     stock: {
-        type: Number, 
+        type: Number,
         required: true
     },
     category: {
-        type: String, 
+        type: String,
         required: true
     },
     status: {
-        type: Boolean, 
+        type: Boolean,
         required: true
     },
     thumbnails: {
-        type: [String], 
+        type: [String],
     },
     owner: {
-        type: String, 
-        required: true, 
+        type: String,
+        required: true,
         default: 'admin'
-        }
-    
-})
+    }
+});
 
-productSchema.plugin(mongoosePaginate);
+const Product = mongoose.model('Product', productSchema);
 
-const ProductModel = mongoose.model("products", productSchema);
-
-module.exports = ProductModel;
+module.exports = Product;

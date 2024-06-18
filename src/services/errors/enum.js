@@ -5,4 +5,4 @@ const EErrors = {
 }
 
 
-module.exports = {EErrors}
+module.exports = { EErrors }
